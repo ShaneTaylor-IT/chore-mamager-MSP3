@@ -1,6 +1,44 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h2>Welcome to Chore Manager</h2>
-    <p>The MSP3 Development Project has started.</p>
+<div class="text-center my-5">
+    <h1 class="display-4">Welcome to Chore Manager</h1>
+    <p class="lead">Manage the household chores with ease. Earn rewards for completing
+    tasks! Track your
+    progress and stay motivated. Compete with family members to see who can complete the most
+    chores!</p>
+
+    <a href="#" class="btn btn-primary btn-lg me-2">Register</a>
+
+    <a href="#" class="btn btn-outline-primary btn-lg">Login</a>
+</div>
+
+<div class="row g-3">
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title display-6"><i class="fa-solid fa-clipboard-list"></i> Create Chores</h2>
+            <p class="card-text">Create new chores for your household and assign them to members.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title display-6"><i class="fa-solid fa-square-check"></i> Complete Tasks</h2>
+            <p class="card-text">Complete tasks throughout the week and stay on top of your chores.</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title display-6"><i class="fa-solid fa-trophy"></i> Earn Rewards</h2>
+            <p class="card-text">Earn rewards for completing chores and track your progress over time.</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title display-6"><i class="fa-solid fa-cloud-sun-rain"></i> Weather</h2>
+            <p class="card-text">Check today’s weather to plan outdoor chores more effectively.</p>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
