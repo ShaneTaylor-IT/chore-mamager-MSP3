@@ -41,10 +41,23 @@
         </div>
     </nav>
 -->
+    {% if user.is_authenticated %}
+        <div class="container mt-3">
+            <p>Welcome, {{ user.username }}!</p>
+
+            <a href="{% url 'dashboard' %}" class="btn btn-primary">Go to Dashboard</a>
+            <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+        </div>
+    {% else %}
+        <div class="container mt-3">
+            <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+            <a href="{% url 'register' %}" class="btn btn-secondary">Register</a>
+        </div>
+    {% endif %}
 
     <div class="container mt-5 pt-5">
         <h1 class="display-4">Chore Manager</h1>
-
+        
         <!-- Added logout button for testing-->
         <a href="/logout/" class="btn btn-danger">Logout</a>
 
