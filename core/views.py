@@ -3,6 +3,7 @@ from .forms import RegistrationForm
 from django.shortcuts import redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -46,3 +47,11 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return redirect('landing_page')
+
+@login_required
+def dashboard(request):
+    return render(
+        request,
+        'core/dashboard.html',
+    )
+
