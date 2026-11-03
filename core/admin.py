@@ -1,6 +1,7 @@
 from django.contrib import admin
-from .models import household
+from .models import Household, Member
 
 # Register your models here.
 
-admin.site.register(household)
+admin.site.register(Household)
+admin.site.register(Member)
