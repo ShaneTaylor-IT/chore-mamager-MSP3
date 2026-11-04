@@ -18,4 +18,13 @@
             <li>{{ chore.name }} - {{ chore.description }}</li>
         {% endfor %}
     </ul>
+
+    <h2>Recent Members</h2>
+    <ul>
+        {% for member in recent_members %}
+            <li>{{ member.display_name }}</li>
+        {% empty %}
+            <li>No recent members found.</li>
+        {% endfor %}
+    </ul>
 {% endblock %}
