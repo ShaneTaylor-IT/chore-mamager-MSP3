@@ -4,4 +4,18 @@
     <h1>Dashboard</h1>
     <p>Welcome {{user.username}}!</p>
     <p>You successfully logged in.</p>
+
+    <h2>Dashboard Statistics</h2>
+    <ul>
+        <li>Total Households: {{ household_count }}</li>
+        <li>Total Members: {{ member_count }}</li>
+        <li>Total Chores: {{ chore_count }}</li>
+    </ul>
+
+    <h2>Recent Chores</h2>
+    <ul>
+        {% for chore in recent_chores %}
+            <li>{{ chore.name }} - {{ chore.description }}</li>
+        {% endfor %}
+    </ul>
 {% endblock %}

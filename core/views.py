@@ -4,6 +4,8 @@ from django.shortcuts import redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
+from .models import Household, Member, Chore
+
 
 # Create your views here.
 
@@ -50,8 +52,20 @@ def user_logout(request):
 
 @login_required
 def dashboard(request):
+
+    household_count = Household.objects.count()
+    member_count = Member.objects.count()
+    chore_count = Chore.objects.count()
+
+    context = {
+        'household_count': household_count,
+        'member_count': member_count,
+        'chore_count': chore_count,
+        'recent_chores': Chore.objects.all()[:5]  # Show last 5 chores
+    }
     return render(
         request,
         'core/dashboard.html',
+        context
     )
 
