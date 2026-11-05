@@ -6,16 +6,46 @@
     <p>You successfully logged in.</p>
 
     <h2>Dashboard Statistics</h2>
-    <ul>
-        <li>Total Households: {{ household_count }}</li>
-        <li>Total Members: {{ member_count }}</li>
-        <li>Total Chores: {{ chore_count }}</li>
-    </ul>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Total Households</h5>
+                    <p class="card-text">{{ household_count }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Total Members</h5>
+                    <p class="card-text">{{ member_count }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Total Chores</h5>
+                    <p class="card-text">{{ chore_count }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
 
     <h2>Recent Chores</h2>
     <ul>
         {% for chore in recent_chores %}
-            <li>{{ chore.name }} - {{ chore.description }}</li>
+            <li>
+                <strong>{{ chore.title }}</strong><br>
+                Assigned to: {{ chore.assigned_member }}<br>
+                Category: {{ chore.category }}<br>
+                Points: {{ chore.points }}<br>
+            </li>
+            {% empty %}
+            <li>No recent chores found.</li>
         {% endfor %}
     </ul>
 

@@ -61,7 +61,8 @@ def dashboard(request):
         'household_count': household_count,
         'member_count': member_count,
         'chore_count': chore_count,
-        'recent_chores': Chore.objects.all()[:5]  # Show last 5 chores
+        'recent_chores': Chore.objects.all()[:5], # Show last 5 chores
+        'recent_members': Member.objects.all()[:5],  # Show last 5 members
     }
     return render(
         request,
@@ -69,3 +70,14 @@ def dashboard(request):
         context
     )
 
+@login_required
+def members(request):
+    members = Member.objects.all()
+    context = {
+        'members': members,
+    }
+    return render(
+        request,
+        'core/members.html',
+        context
+    )
