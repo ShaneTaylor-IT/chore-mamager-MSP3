@@ -81,3 +81,15 @@ def members(request):
         'core/members.html',
         context
     )
+
+@login_required
+def chores(request):
+    chores = Chore.objects.all()
+    context = {
+        'chores': chores,
+    }
+    return render(
+        request,
+        'core/chores.html',
+        context
+    )

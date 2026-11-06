@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Chores</h1>
+    <ul>
+        {% for chore in chores %}
+            <li>
+                <strong>{{ chore.title }}</strong>
+                Assigned to: {{ chore.assigned_member }}<br>
+                Category: {{ chore.category }}<br>
+                Points: {{ chore.points }}<br>
+                Due {{ chore.due_date }}<br>
+            
+            </li>
+        {% empty %}
+            <li>No chores available.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
