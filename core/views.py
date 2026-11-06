@@ -5,6 +5,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from .models import Household, Member, Chore
+from .forms import ChoreForm
 
 
 # Create your views here.
@@ -92,4 +93,19 @@ def chores(request):
         request,
         'core/chores.html',
         context
+    )
+
+@login_required
+def add_chore(request):
+    if request.method == 'POST':
+        form = ChoreForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('chores')
+    else:
+        form = ChoreForm()
+    return render(
+        request,
+        'core/add_chore.html',
+        {'form': form}
     )
