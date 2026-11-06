@@ -9,7 +9,7 @@
                 Assigned to: {{ chore.assigned_member }}<br>
                 Category: {{ chore.category }}<br>
                 Points: {{ chore.points }}<br>
-                Due {{ chore.due_date }}<br>
+                Due {{ chore.due_date|date:"d/m/Y" }}<br>
             
             </li>
         {% empty %}
